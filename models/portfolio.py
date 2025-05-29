@@ -59,8 +59,10 @@ class Portfolio:
                 continue
                 
             shares_diff = (target_value - current_value) / price
-            if abs(shares_diff) >= 0.01:  # Minimum trade size of 0.01 shares
-                trades.append(Trade(symbol=symbol, shares=shares_diff))
+            # Round to nearest integer and only create trade if at least 1 share difference
+            shares_diff_int = round(shares_diff)
+            if abs(shares_diff_int) >= 1:
+                trades.append(Trade(symbol=symbol, shares=shares_diff_int))
                 
         return trades
 

@@ -7,12 +7,12 @@ class Trade:
 
     Attributes:
         symbol: The ticker symbol of the stock to trade.
-        shares: Positive number for buy, negative for sell.
+        shares: Positive integer for buy, negative integer for sell.
     """
     symbol: str
-    shares: float
+    shares: int
 
     def __str__(self) -> str:
         """String representation of the trade."""
         action = "BUY" if self.shares > 0 else "SELL"
-        return f"{action} {abs(self.shares):.2f} shares of {self.symbol}" 
+        return f"{action} {abs(self.shares)} shares of {self.symbol}" 

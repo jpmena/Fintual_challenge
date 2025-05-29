@@ -226,7 +226,7 @@ Important: If you use LLMs that’s ok, but you must share the conversations.
    - Add manual price input as a complement in case yfinance fails.
    - Tested with different symbols, with yfinance and with manual price input.
    - Tested some border cases such as no price available, target allocation not being 100%, minimum trade size, rounding the number of shares to be an integer, etc.
-
+   - Add that the number of shares to sell or buy must be integers.
 ### Key Decisions
 
 1. Use of builder pattern:
