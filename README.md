@@ -1,6 +1,6 @@
 # Portfolio Management System
 
-A simple portfolio management system that allows tracking and rebalancing of stock portfolios based on target allocations.
+A simple portfolio management system that allows tracking and rebalancing of stock portfolios based on target allocations. For solution details about the thinking process and solving, please refer to [a relative link](SOLUTION.md)
 
 ## Features
 
