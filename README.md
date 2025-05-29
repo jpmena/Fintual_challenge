@@ -60,18 +60,51 @@ python main.py
 ## Usage Example
 
 ```python
-from models.portfolio import Portfolio
-from models.stock import Stock
-from services.price_service import StockPriceService
+from models import Portfolio, Stock
+from models.stock import StockBuilder
+from models.portfolio import PortfolioBuilder
+from services import StockPriceService
 
-# Initialize portfolio with holdings and target allocation
-holdings = {
-    "META": Stock(symbol="META", shares=50),
-    "AAPL": Stock(symbol="AAPL", shares=30)
-}
-target_alloc = {"META": 0.40, "AAPL": 0.60}
+meta_stock = (StockBuilder()
+        .with_symbol("META")
+        .with_shares(50)
+        .build())
+    
+    aapl_stock = (StockBuilder()
+        .with_symbol("AAPL")
+        .with_shares(30)
+        .build())
+    
+    googl_stock = (StockBuilder()
+        .with_symbol("GOOGL")
+        .with_shares(20)
+        .build())
 
-# Create portfolio and rebalance
-portfolio = Portfolio(holdings=holdings, target_alloc=target_alloc)
-trades = portfolio.rebalance()
+    # Create portfolio using builder pattern
+    portfolio_builder = PortfolioBuilder()
+    
+    # Add holdings
+    portfolio_builder.add_holding(meta_stock)
+    portfolio_builder.add_holding(aapl_stock)
+    portfolio_builder.add_holding(googl_stock)
+    
+    # Set target allocations
+    portfolio_builder.set_target_allocation("META", 0.3)   # 30% META
+    portfolio_builder.set_target_allocation("AAPL", 0.4)   # 40% AAPL
+    portfolio_builder.set_target_allocation("GOOGL", 0.3)  # 30% GOOGL
+
+    # Build portfolio
+    portfolio = portfolio_builder.build()
+    
+    # Fetch and update current market prices
+    price_service = StockPriceService()
+    prices = price_service.get_current_prices(list(portfolio.holdings.keys()))
+    
+    # Update stock prices
+    for symbol, price in prices.items():
+        portfolio.holdings[symbol].update_price(price)
+        
+    # Calculate rebalancing trades
+    trades = portfolio.get_rebalancing_trades()
+                
 ``` 
