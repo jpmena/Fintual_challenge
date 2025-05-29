@@ -1,21 +1,21 @@
 # Portfolio Management System
 
-A simple portfolio management system that allows tracking and rebalancing of stock portfolios based on target allocations. For solution details about the thinking process and solving, please refer to [Solution](SOLUTION.md)
+A simple portfolio management system that allows tracking and rebalancing of stock portfolios based on target allocations. For solution details about the thinking process and solving, please refer to [Solution](SOLUTION.md).
 
 ## Features
 
-- Stock portfolio tracking with real-time prices using Yahoo Finance API
-- Portfolio rebalancing based on target allocations
-- Clean, modular code structure
-- Implementation of design patterns for extensibility and maintainability
+- Stock portfolio tracking with real-time prices using Yahoo Finance API.
+- Portfolio rebalancing based on target allocations.
+- Clean, modular code structure.
+- Implementation of design patterns for extensibility and maintainability.
 
 ## Design Patterns
 
 ### Builder Pattern
-- Used for creating Stock and Portfolio instances
-- Provides fluent interface for object construction
-- Enforces validation rules during object creation
-- Makes future extensions easier
+- Used for creating Stock and Portfolio instances.
+- Provides fluent interface for object construction.
+- Enforces validation rules during object creation.
+- Makes future extensions easier.
 
 Example:
 ```python
