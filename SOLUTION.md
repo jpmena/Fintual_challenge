@@ -210,18 +210,17 @@ Important: If you use LLMs that’s ok, but you must share the conversations.
 
 2. First Iteration:
    - Question: "How could I improve the initial implementation, involving splitting the code into multiple files, thus improving the structure. Also, which real-time stock price tools are free and easy to use?"
-   - Changes Made:
-     - Split code into multiple files
+   - Changes made:
+     - Split code into multiple files.
      - Added real-time price fetching. In this case, LLM suggested yfinance, which is a library that connects to a Yahoo finance scraper. For this reason, it is important to always use the last version of yfinance, as the old ones tend to get the rate limit error for the scrapers.
-     - Improved project structure
+     - Improved project structure.
 
 3. Second Iteration:
-   - Question: "Need to update dependencies, add solution documentation, and implement Builder design patterns"
+   - Question: "Need to update dependencies, add solution documentation, and implement builder design patterns"
    - Changes Made:
      - Updated yfinance to latest version
      - Added comprehensive documentation, such as the skeleton for the README and SOLUTION md files. 
      - Implemented Builder pattern for Stock and Portfolio. The idea behind this is to consider that both classes might expand on their functionalities, and applying builder patterns allow to separate how we use the stocks and portfolios objects with how we create them. If in the future we want to add new things such as price history, for example, we would be able to do it without compromising how the objects interact today on the rebalance methods.
-     - Added detailed technical documentation
 
 4. Final check:
    - Add manual price input as a complement in case yfinance fails.
@@ -230,13 +229,13 @@ Important: If you use LLMs that’s ok, but you must share the conversations.
 
 ### Key Decisions
 
-1. Use of Builder Pattern:
+1. Use of builder pattern:
    - Chosen for better object construction.
    - Enables future extensibility.
    - Improves code readability.
    - Enforces validation during construction.
 
-2. Project Structure:
+2. Project structure:
    - Modular approach with separate concerns.
    - Clear separation of models and services.
    - Easy to extend and maintain.
